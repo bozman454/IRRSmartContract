@@ -1,0 +1,5 @@
+const CONSTANTS = {
+    RATE_CHANGE : .00001,
+    NUMBER_OF_GUESSES: 1000000
+}
+module.exports = {CONSTANTS}
