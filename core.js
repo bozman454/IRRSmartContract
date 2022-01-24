@@ -42,12 +42,15 @@ function irr(values, guess) {
 function guessIRR(values, rate) {
     let result = 0
     values.forEach((cashFlow, index) => {
+
         npv = (cashFlow / Math.pow((1 + rate), index))
+        console.log(Math.pow((1 + rate), index))
         result += npv
     });
     return result
 }
 
 module.exports = {
-    irr
+    irr,
+    guessIRR
 }
