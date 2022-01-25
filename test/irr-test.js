@@ -17,7 +17,7 @@ describe("IRRCalculator", function () {
             42.00
         ];
 
-        const irrrate = 20
+        const irrrate = 1998
         
         const scale = 10000
 
@@ -26,7 +26,7 @@ describe("IRRCalculator", function () {
         const rate = await IRR.deploy(irrrate, values);
 
         await rate.deployed();
-        expect(await rate.getIRR() / Math.pow(10, 24)).to.equal(10);
+        expect(await rate.getIRR() / Math.pow(10, 26)).to.equal(10);
         
     })
 }) 

@@ -37,8 +37,8 @@
       ]
     },
     "C:\\Users\\bosma\\irrsmartcontract\\contracts\\IRRCalculator.sol": {
-      "lastModificationDate": 1643055975431,
-      "contentHash": "fe65295d987c9767e1ff19dc8a90734f",
+      "lastModificationDate": 1643072774932,
+      "contentHash": "6143ce57f4955e58763e9499b632f1a8",
       "sourceName": "contracts/IRRCalculator.sol",
       "solcConfig": {
         "version": "0.5.0",
@@ -72,7 +72,8 @@
         "^0.5.0"
       ],
       "artifacts": [
-        "IRRCalculator"
+        "IRRCalculator",
+        "IRRGen"
       ]
     },
     "C:\\Users\\bosma\\irrsmartcontract\\node_modules\\@hq20\\fixidity\\contracts\\FixidityLib.sol": {
