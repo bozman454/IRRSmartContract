@@ -7,15 +7,13 @@ Installation:
 ```
 npm install
 ```
-Operation: (in seperate terminals)
+Solidity Operation: (in seperate terminals)
 ```
 npx hardhat node
 ```
 ```
 npx hardhat test --network localhost
 ```
-
-
 
 Notes on Solidity Implementation:
 - running test deploys smart contract on local chain
@@ -26,3 +24,14 @@ Notes on Solidity Implementation:
 Biggest Challenge:
 - Floating point arichmitic, I have never needed to utilize this type of math which was the biggest hurdle.
 - I couldnt figure out how to handle fixed points when performing exponent math (x^y) which is the major reason my math is incorrect.
+
+
+Node Operation:
+```
+node index.js
+```
+
+Notes on Node Implementation: (IRR methods inside core.js)
+- configure n inside constants file
+- use index.js to use core methods
+- returns actual IRR after executing n guesses
