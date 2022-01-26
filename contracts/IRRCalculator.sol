@@ -4,40 +4,54 @@ import "hardhat/console.sol";
 import "@hq20/fixidity/contracts/FixidityLib.sol";
 import "@hq20/fixidity/contracts/ExponentLib.sol";
 
+contract IRRCalculator  {
+    int IRR = 0;
+    uint constant p = 10 ** 5;
 
- library IRRGen {
-    using FixidityLib for int;
+    struct Analyist {
+        address origin;
+    }
+    address public emp;
+    mapping(address => Analyist) public employees;
 
-        function guessIRR(uint _rate, int[] memory _values) internal pure returns (int){
+    constructor(uint _rate, int[] memory _values) public {
+        require(_rate > 0, "Guess rate cannot be negative");
+        //take sender's info
+        emp = msg.sender;
+        employees[emp].origin = emp;
+
+        _rate = _rate * uint(p);
+        for(uint i = 0; i < _values.length; i++){
+            _values[i] = _values[i] * int(p);
+        }
+
+
+        IRR = guessIRR(_rate, _values);
+        
+       
+        
+    }
+
+    function guessIRR(uint _rate, int[] memory _values) internal returns (int){
+
+
+            require(msg.sender == emp, "Only financial analyists can access this interface");
+            require(_rate > 0, "Guess rate cannot be negative");
+            require(_values.length > 0, "Values entered cannot be empty");
+
             int irr = 0;
+            uint p = 10 ** 5;
             for(uint i = 0; i < _values.length; i++){
-            uint denom =  (_rate + 1) **  i;
-            int npv = FixidityLib.divide(_values[i].toFixed(), int(denom).toFixed());
+            uint denom = (_rate ) ** i;
+            //int x = FixidityLib.divide(int(denom), int(i) * 10);
+            //console.logInt(x);
+            int npv = FixidityLib.multiply((_values[i]), FixidityLib.reciprocal(int(denom)) );
+
             irr = irr + npv;
             }
             return irr;
         }
-    }
 
-
-
-contract IRRCalculator  {
-    int IRR = 0;
-    uint n = 100;
-    uint rate = 0;
-    constructor(uint _rate, int[] memory _values) public{
-        IRR = IRRGen.guessIRR(_rate, _values);
-        console.logInt(FixidityLib.fromFixed(IRR, 24));
-        // if (IRR < 0){
-        //     for(uint i = 0; i < n; i++){
-        //     _rate = _rate - 2;
-        //     IRR = IRRGen.guessIRR(_rate, _values);
-        //     console.logInt(IRR);
-        //     console.log("rate: ", _rate);
-        //     }
-        // }
-        
-    }
     function getIRR() public view returns (int){
         return IRR;
     }

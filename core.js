@@ -27,8 +27,10 @@ function irr(values, guess) {
     }
     //sort the array to access the smallest value first in array everytime
     //smallest result is the closest to 0, i.e. correct rate 
-    resultarr = resultarr.filter(item => item.result < .05 && item.result > 0).sort((a, b) => {return a.result - b.result})
+    resultarr = resultarr.filter(item => item.result < .05 && item.result > 0)
+                         .sort((a, b) => {return a.result - b.result})
     //return percantage rounded to 5 decimal place
+    console.log(resultarr[0].result)
     return (resultarr[0].rate).toFixed(5)
 
 }
@@ -43,6 +45,7 @@ function guessIRR(values, rate) {
     let result = 0
     values.forEach((cashFlow, index) => {
         npv = (cashFlow / Math.pow((1 + rate), index))
+        console.log(Math.pow((1 + rate), index))
         result += npv
     });
     return result

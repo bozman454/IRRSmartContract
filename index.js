@@ -12,7 +12,7 @@ const input = [
 ];
 
 
-console.log( irr(input, .19) ) 
+console.log( guessIRR(input, .19883) ) 
 
 //console.log(irr(input, .2))
 //console.log(irr(input, .19883))
