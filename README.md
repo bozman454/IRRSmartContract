@@ -7,9 +7,11 @@ Installation:
 ```
 npm install
 ```
-Operation: (seperate windows)
+Operation: (in seperate terminals)
 ```
 npx hardhat node
+```
+```
 npx hardhat test --network localhost
 ```
 
