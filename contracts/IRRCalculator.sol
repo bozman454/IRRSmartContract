@@ -50,13 +50,7 @@ contract IRRCalculator {
         internal
         returns (int256)
     {
-        //check sender's role
-        //use keccak256 to turn into bytes for comparison
-        require(
-            keccak256(bytes(employees[msg.sender].role)) ==
-                keccak256(bytes("financial analyst")),
-            "Only financial analyists can access this interface"
-        );
+        
 
         //ensure values is not empty
         require(_values.length > 0, "Values entered cannot be empty");
@@ -77,7 +71,14 @@ contract IRRCalculator {
         return irr;
     }
 
-    function getIRR() public view returns (int256) {
+    function irr() public view returns (int256) {
+        //check sender's role
+        //use keccak256 to turn into bytes for comparison
+        require(
+            keccak256(bytes(employees[msg.sender].role)) ==
+                keccak256(bytes("financial analyst")),
+            "Only financial analyists can access this interface"
+        );
         return IRR;
     }
 }

@@ -37,8 +37,8 @@
       ]
     },
     "C:\\Users\\bosma\\irrsmartcontract\\contracts\\IRRCalculator.sol": {
-      "lastModificationDate": 1643219120504,
-      "contentHash": "629239459142cb8d52ca8c543eede873",
+      "lastModificationDate": 1643226235626,
+      "contentHash": "b474ab58ea5f678d39a231732fdaeb42",
       "sourceName": "contracts/IRRCalculator.sol",
       "solcConfig": {
         "version": "0.5.0",

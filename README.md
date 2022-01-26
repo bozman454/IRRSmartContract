@@ -20,6 +20,7 @@ Notes on Solidity Implementation:
 - due to not supporting floating points, users are expected to enter  'guess' rate as a scaled decimal by 5 places (.20 => 20000)
 - restricted access to 'financial anylists'
 - spent ~18 hours total on implementation
+- test handles reverts in deployment
 
 Challenges:
 - Floating point arithmitic, I have never needed to utilize this type of math which was the biggest hurdle.
